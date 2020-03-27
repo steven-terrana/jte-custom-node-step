@@ -5,9 +5,15 @@ void call(Closure body){
     // println "===methods==="
     // body.metaClass.methods.name.unique().each{ println "- ${it}"}
     // println "============="
-    println body.getOwner()?.config
-    println body.getDelegate()?.config
+    try{
+        println "owner -> ${body.getOwner().config}"
+    }catch(){}
 
+
+    try{
+        println "delegate -> ${body.getDelegate().config}" 
+    }catch(){}
+    
     def bodyLibConfig = null 
 
     def nodeLabel = bodyLibConfig?.label ?: config.label ?: "" 
