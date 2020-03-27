@@ -1,5 +1,5 @@
 void call(){
-    node{
+    node("some lib specific label"){
         sh "echo hi" 
     }
 }
