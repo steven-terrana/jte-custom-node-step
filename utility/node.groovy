@@ -5,8 +5,8 @@ void call(Closure body){
     // println "===methods==="
     // body.metaClass.methods.name.unique().each{ println "- ${it}"}
     // println "============="
-    println body.getOwner().getProperty("config")
-    println body.getDelegate().getProperty("config")
+    println body.getOwner()?.config
+    println body.getDelegate()?.config
 
     def bodyLibConfig = null 
 
