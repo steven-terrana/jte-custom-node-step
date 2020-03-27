@@ -1,5 +1,10 @@
 void call(Closure body){
-    def bodyLibConfig = body.getDelegate().getConfig()
+
+    println body
+    println body.getOwner()
+    println body.getDelegate() 
+
+    def bodyLibConfig = null 
 
     def nodeLabel = bodyLibConfig.label ?: config.label ?: "" 
     println "would use node label: ${nodeLabel}"
