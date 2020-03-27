@@ -7,13 +7,13 @@ void call(Closure body){
     // println "============="
     try{
         println "owner -> ${body.getOwner().config}"
-    }catch(){}
+    }catch(any){}
 
 
     try{
         println "delegate -> ${body.getDelegate().config}" 
-    }catch(){}
-    
+    }catch(any){}
+
     def bodyLibConfig = null 
 
     def nodeLabel = bodyLibConfig?.label ?: config.label ?: "" 
