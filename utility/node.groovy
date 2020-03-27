@@ -2,11 +2,11 @@ void call(Closure body){
 
     println body
 
-    println "===methods==="
-    body.metaClass.methods.name.unique().each{ println "- ${it}"}
-    println "============="
-    println body.getOwner()
-    println body.getDelegate() 
+    // println "===methods==="
+    // body.metaClass.methods.name.unique().each{ println "- ${it}"}
+    // println "============="
+    println body.getOwner().getProperty("config")
+    println body.getDelegate().getProperty("config")
 
     def bodyLibConfig = null 
 
