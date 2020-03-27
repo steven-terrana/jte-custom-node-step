@@ -1,22 +1,17 @@
 void call(Closure body){
 
-    println body
-
-    // println "===methods==="
-    // body.metaClass.methods.name.unique().each{ println "- ${it}"}
-    // println "============="
+    def bodyConfig = [:]
     try{
-        println "owner -> ${body.getOwner().config}"
-    }catch(any){}
+        bodyConfig = body.config
+    }catch(MissingPropertyException ex){
+        /*
+          config not defined
+          this probably means a node block called from the template itself
+          as opposed to from within a library step
+        */
+    }
 
-
-    try{
-        println "delegate -> ${body.getDelegate().config}" 
-    }catch(any){}
-
-    def bodyLibConfig = null 
-
-    def nodeLabel = bodyLibConfig?.label ?: config.label ?: "" 
+    def nodeLabel = bodyConfig.label ?: config.label ?: "" 
     println "would use node label: ${nodeLabel}"
     steps.node{
         body()
