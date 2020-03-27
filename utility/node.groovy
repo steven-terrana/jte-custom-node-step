@@ -1,4 +1,4 @@
-void call(Closure body){
+void call(String label = null, Closure body){
 
     def bodyConfig = [:]
     try{
@@ -11,8 +11,8 @@ void call(Closure body){
         */
     }
 
-    def nodeLabel = bodyConfig.label ?: config.label ?: "" 
-    println "would use node label: ${nodeLabel}"
+    def nodeLabel = label ?: bodyConfig.label ?: config.label ?: "" 
+    println "would use label: ${nodeLabel}"
     steps.node{
         body()
     }
