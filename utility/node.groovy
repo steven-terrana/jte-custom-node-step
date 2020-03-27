@@ -1,7 +1,7 @@
 void call(Closure body){
-    println body.getOwner() 
+    def bodyLibConfig.getOwner().getConfig() 
 
-    def nodeLabel = config.label ?: "" 
+    def nodeLabel = bodyLibConfig.label ?: config.label ?: "" 
     println "would use node label: ${nodeLabel}"
     steps.node{
         body()
